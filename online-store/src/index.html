@@ -7,10 +7,80 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge" />
   <title>Online store</title>
   <link rel="stylesheet" href="global.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Merriweather:wght@700&display=swap"
+    rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Rubik&display=swap" rel="stylesheet">
 </head>
 
-<body>
+<body class="body">
+  <header class="header">
+    <h1 class="h1"><a href="index.html">Lipsum</a></h1>
+    <a href="" class="cart-btn">Cart<img class="cart-img" src="./assets/cart-png.png" alt="" width="24" height="20"></a>
+  </header>
+  <main class="main">
+    <section class="store-section">
+      <div class="filter-box">
+        <h2 class="page-title">Products</h2>
+        <p>Sort By</p>
+        <select id="sort">
+          <option value="value1" selected>Name (A - Z)</option>
+          <option value="value2">Name (Z - A)</option>
+          <option value="value3">Year (Ascending)</option>
+          <option value="value3">Year (Descending)</option>
+        </select>
+        <form class="filter-form">
 
+          <input type="search" id="search" placeholder="Search" autofocus="true">
+
+          <p><b>Company:</b></p>
+          <label for="apple">Apple</label>
+          <input type="checkbox" id="apple"><br>
+
+          <label for="samsung">Samsung</label>
+          <input type="checkbox" id="samsung"><br>
+
+          <label for="xiaomi">Xiaomi</label>
+          <input type="checkbox" id="xiaomi"><br><br>
+
+          <label for="popularFilter">Only popular</label>
+          <input type="checkbox" id="popularFilter"><br><br>
+
+          <p><b>Color:</b></p>
+
+          <label for="white">White</label>
+          <input type="checkbox" id="white"><br>
+
+          <label for="red">Red</label>
+          <input type="checkbox" id="red"><br>
+
+          <label for="yellow">Yellow</label>
+          <input type="checkbox" id="yellow"><br><br>
+
+          <p><b>How many cameras:</b></p>
+          <label for="1-cam">1</label>
+          <input type="checkbox" id="1-cam"><br>
+
+          <label for="2-cam">2</label>
+          <input type="checkbox" id="2-cam"><br>
+
+          <label for="3-cam">3</label>
+          <input type="checkbox" id="3-cam"><br>
+
+          <div class="slider-year"></div>
+          <div class="slider-count"></div>
+
+          <input type="reset" value="Reset filters" id="reset">
+        </form>
+      </div>
+      <div class="catalog">
+      </div>
+    </section>
+  </main>
 </body>
 
 </html>
