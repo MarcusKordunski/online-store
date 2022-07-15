@@ -1,6 +1,6 @@
-import { data } from "./components/data/data";
-import Cards from "./components/view/cards/cards";
+import Load from "./components/controller/load";
 import './global.css'
 
-const test = new Cards()
-test.draw(data)
+
+const test1 = new Load()
+test1.load()

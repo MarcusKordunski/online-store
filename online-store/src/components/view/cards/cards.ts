@@ -4,16 +4,7 @@ import './cards.css'
 class Cards {
   draw(data: IData[]): void {
     const catalog = document.querySelector('.catalog') as HTMLElement
-    const dataSorted: IData[] = data.sort(function (a, b) {
-      if (a.name > b.name) {
-        return 1;
-      }
-      if (a.name < b.name) {
-        return -1;
-      }
-      return 0
-    })
-    dataSorted.forEach(item => {
+    data.forEach(item => {
       const catalogItem = document.createElement('div') as HTMLElement
       const catalogItemTitle = document.createElement('h3') as HTMLElement
       const catalogItemImg = document.createElement('div') as HTMLElement
