@@ -8,4 +8,5 @@ export interface IData {
   color: string;
   size: string;
   favorite: boolean;
+  popular: string;
 }

@@ -11,6 +11,7 @@ export const data: IData[] = [
     color: 'White',
     size: '3',
     favorite: false,
+    popular: 'no'
   },
   {
     num: '2',
@@ -22,6 +23,7 @@ export const data: IData[] = [
     color: 'Red',
     size: '2',
     favorite: false,
+    popular: 'no'
   },
   {
     num: '3',
@@ -33,6 +35,7 @@ export const data: IData[] = [
     color: 'Yellow',
     size: '1',
     favorite: false,
+    popular: 'popular'
   },
   {
     num: '4',
@@ -44,6 +47,7 @@ export const data: IData[] = [
     color: 'Yellow',
     size: '2',
     favorite: false,
+    popular: 'no'
   },
   {
     num: '5',
@@ -55,6 +59,7 @@ export const data: IData[] = [
     color: 'White',
     size: '1',
     favorite: false,
+    popular: 'popular'
   },
   {
     num: '6',
@@ -66,6 +71,7 @@ export const data: IData[] = [
     color: 'Red',
     size: '2',
     favorite: false,
+    popular: 'no'
   },
   {
     num: '7',
@@ -77,6 +83,7 @@ export const data: IData[] = [
     color: 'White',
     size: '3',
     favorite: true,
+    popular: 'no'
   },
   {
     num: '8',
@@ -88,6 +95,7 @@ export const data: IData[] = [
     color: 'Red',
     size: '3',
     favorite: false,
+    popular: 'popular'
   },
   {
     num: '9',
@@ -99,6 +107,7 @@ export const data: IData[] = [
     color: 'Yellow',
     size: '3',
     favorite: false,
+    popular: 'popular'
   },
   {
     num: '10',
@@ -110,5 +119,6 @@ export const data: IData[] = [
     color: 'White',
     size: '1',
     favorite: false,
+    popular: 'popular'
   },
 ];

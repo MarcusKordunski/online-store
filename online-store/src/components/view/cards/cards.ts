@@ -40,6 +40,12 @@ class Cards {
       catalogItem.append(catalogItemSize)
       catalogItemSize.textContent = `Cameras qty.: ${item.size}`
     })
+    if (data.length === 0) {
+      const noResultsTitle = document.createElement('h2') as HTMLElement
+      catalog.append(noResultsTitle)
+      noResultsTitle.classList.add('catalog__no-results')
+      noResultsTitle.textContent = `Sorry, we didn't find any results matching this search`
+    }
   }
 }
 
