@@ -99,9 +99,15 @@
   flex-direction: row;
   gap: 1em;
   flex-wrap: wrap;
+  align-content: flex-start;
 }
 
 #sliderYear,
 #sliderInstock {
   margin: 20px 0 20px 0;
+}
+
+.slider-title {
+  width: 100px;
+  margin-bottom: 50px;
 }

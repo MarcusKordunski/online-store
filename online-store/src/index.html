@@ -35,7 +35,7 @@
         </select>
         <form class="filter-form">
 
-          <input type="search" id="search" placeholder="Search" autofocus="true">
+          <input type="search" id="search" placeholder="Search" autofocus="true" autocomplete="off">
 
           <p><b>Company:</b></p>
           <label for="apple">Apple</label>
@@ -61,7 +61,7 @@
           <label for="yellow">Yellow</label>
           <input type="checkbox" id="yellow"><br><br>
 
-          <p><b>How many cameras:</b></p>
+          <p><b>Cameras qty.:</b></p>
           <label for="1-cam">1</label>
           <input type="checkbox" id="1-cam" data-filter="1"><br>
 
@@ -71,8 +71,10 @@
           <label for="3-cam">3</label>
           <input type="checkbox" id="3-cam" data-filter="3"><br>
 
-          <h3></h3>
+          <p class="slider-title"><b>Year of production:</b></p>
           <div id="sliderYear"></div>
+
+          <p class="slider-title"><b>In stock:</b></p>
           <div id="sliderInstock"></div>
 
           <input type="reset" value="Reset filters" id="reset">

@@ -19,6 +19,14 @@ noUiSlider.create(sliderYear, {
     wNumb({ decimals: 0 }),
     wNumb({ decimals: 0 })
   ],
+  format: {
+    to: function (value) {
+      return Math.floor(value);
+    },
+    from: function (value) {
+      return parseInt(value);
+    },
+  },
 });
 
 noUiSlider.create(sliderInstock, {
@@ -32,6 +40,14 @@ noUiSlider.create(sliderInstock, {
     wNumb({ decimals: 0 }),
     wNumb({ decimals: 0 })
   ],
+  format: {
+    to: function (value) {
+      return Math.floor(value);
+    },
+    from: function (value) {
+      return parseInt(value);
+    },
+  },
 });
 
 const test1 = new Load()
