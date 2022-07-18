@@ -13,6 +13,7 @@ class Controller {
   filterForm: HTMLElement
   dataSliderYear: IData[]
   dataSliderInstock: IData[]
+  filters: string[]
   constructor() {
     this.cards = new Cards()
     this.data = data
@@ -23,6 +24,7 @@ class Controller {
     this.filterForm = document.querySelector('.filter-form') as HTMLInputElement
     this.dataSliderYear = data
     this.dataSliderInstock = data
+    this.filters = []
   }
 
   find(data: IData[]) {
@@ -162,25 +164,24 @@ class Controller {
   }
 
   filter() {
-    let filters: string[] = []
     let dataFiltered: IData[] = data
     this.filterForm.addEventListener('change', (e) => {
       const el = e.target as HTMLInputElement;
       if (el !== null && el.tagName === 'INPUT' && el.id !== 'search') {
-        if (!filters.includes(el.id) && !el.dataset.filter) {
-          filters.push(el.id)
+        if (!this.filters.includes(el.id) && !el.dataset.filter) {
+          this.filters.push(el.id)
         } else {
-          filters = filters.filter(item => item !== el.id)
+          this.filters = this.filters.filter(item => item !== el.id)
         }
 
         if (el.dataset.filter) {
-          if (!filters.includes(el.dataset.filter)) {
-            filters.push(el.dataset.filter)
+          if (!this.filters.includes(el.dataset.filter)) {
+            this.filters.push(el.dataset.filter)
           } else {
-            filters = filters.filter(item => item !== el.dataset.filter)
+            this.filters = this.filters.filter(item => item !== el.dataset.filter)
           }
         }
-        console.log(filters)
+        console.log(this.filters)
 
         let filterCompanyFlag = false
         let filterColorFlag = false
@@ -189,8 +190,8 @@ class Controller {
         let counterFilter2 = 0
         let counterFilter3 = 0
 
-        for (let i = 0; i < filters.length; i++) {
-          if (filters[i] === 'apple' || filters[i] === 'samsung' || filters[i] === 'xiaomi') {
+        for (let i = 0; i < this.filters.length; i++) {
+          if (this.filters[i] === 'apple' || this.filters[i] === 'samsung' || this.filters[i] === 'xiaomi') {
             counterFilter1++
             if (counterFilter1 >= 2) {
               filterCompanyFlag = true
@@ -200,8 +201,8 @@ class Controller {
           }
         }
 
-        for (let i = 0; i < filters.length; i++) {
-          if (filters[i] === 'red' || filters[i] === 'white' || filters[i] === 'yellow') {
+        for (let i = 0; i < this.filters.length; i++) {
+          if (this.filters[i] === 'red' || this.filters[i] === 'white' || this.filters[i] === 'yellow') {
             counterFilter2++
             if (counterFilter2 >= 2) {
               filterColorFlag = true
@@ -211,8 +212,8 @@ class Controller {
           }
         }
 
-        for (let i = 0; i < filters.length; i++) {
-          if (filters[i] === '1' || filters[i] === '2' || filters[i] === '3') {
+        for (let i = 0; i < this.filters.length; i++) {
+          if (this.filters[i] === '1' || this.filters[i] === '2' || this.filters[i] === '3') {
             counterFilter3++
             if (counterFilter3 >= 2) {
               filterCamFlag = true
@@ -234,15 +235,15 @@ class Controller {
             counter++
           }
           for (const key in item) {
-            for (const j of filters) {
+            for (const j of this.filters) {
               if (key !== 'favorite' && key !== 'quantity' && key !== 'year' && key !== 'num' && key !== 'img' && key !== 'name') {
                 console.log(key + ' ' + j)
                 if (String(item[key as keyof typeof item]).toLowerCase() == j) {
                   counter++
                   console.log(counter)
-                  if ((filterCompanyFlag === true || filterColorFlag === true || filterCamFlag === true) && (counterFilter1 === filters.length || counterFilter2 === filters.length || counterFilter3 === filters.length)) {
+                  if ((filterCompanyFlag === true || filterColorFlag === true || filterCamFlag === true) && (counterFilter1 === this.filters.length || counterFilter2 === this.filters.length || counterFilter3 === this.filters.length)) {
                     return item
-                  } else if (counter === filters.length) {
+                  } else if (counter === this.filters.length) {
                     return item
                   }
                 }
@@ -253,7 +254,8 @@ class Controller {
 
         const catalog = document.querySelector('.catalog') as HTMLElement
         catalog.innerHTML = ''
-        if (filters.length === 0) {
+
+        if (this.filters.length === 0) {
           this.cards.draw(data)
           dataFiltered = data
           this.dataFiltered = data
@@ -262,6 +264,20 @@ class Controller {
           this.cards.draw(dataFiltered)
           this.dataFiltered = dataFiltered
         }
+      }
+    })
+  }
+  reset() {
+    const reset = document.getElementById('reset') as HTMLElement
+    reset.addEventListener('click', () => {
+      this.filters = []
+      this.dataFiltered = data
+      this.cards.draw(data)
+      const sliderYear = document.getElementById('sliderYear') as noUiSlider.target
+      const sliderInstock = document.getElementById('sliderInstock') as noUiSlider.target
+      if (sliderYear.noUiSlider !== undefined && sliderInstock.noUiSlider !== undefined) {
+        sliderYear.noUiSlider.reset()
+        sliderInstock.noUiSlider.reset()
       }
     })
   }

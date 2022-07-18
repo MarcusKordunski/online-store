@@ -15,6 +15,15 @@ const baseConfig = {
       {
         test: /\.ts$/i, use: 'ts-loader',
       },
+      {
+        test: /\.(jpg|png|gif|woff|eot|ttf|svg)/,
+        use: {
+          loader: 'url-loader', // this need file-loader
+          options: {
+            limit: 50000
+          }
+        }
+      },
     ],
   },
   resolve: {

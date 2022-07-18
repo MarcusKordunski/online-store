@@ -20,6 +20,7 @@ class Load extends Controller {
       catalog.innerHTML = ''
       this.sort(this.dataFiltered)
     })
+    this.reset()
   }
 }
 
