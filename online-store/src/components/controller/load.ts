@@ -21,6 +21,7 @@ class Load extends Controller {
       this.sort(this.dataFiltered)
     })
     this.reset()
+    this.addToCart()
   }
 }
 

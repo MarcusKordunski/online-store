@@ -62,6 +62,20 @@
   height: 30px;
 }
 
+.cart-mark {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #d6d6d6;
+  position: relative;
+  display: none;
+  color: #313132;
+  font-weight: 600;
+  align-content: center;
+  justify-content: center;
+  right: 6.7em;
+}
+
 .main {
   padding: 0 4rem 0 4rem;
   font-size: 1.2em;
@@ -111,6 +125,23 @@
 #sliderYear,
 #sliderInstock {
   margin: 20px 0 20px 0;
+}
+
+#reset {
+  width: 10em;
+  height: 2em;
+  margin: 0 auto;
+  cursor: pointer;
+  transition: 0.3s ease-out;
+}
+
+#reset:hover {
+  background: #313132;
+  color: #d6d6d6;
+}
+
+#reset:active {
+  color: red;
 }
 
 .slider-title {

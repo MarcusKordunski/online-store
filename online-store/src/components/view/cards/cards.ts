@@ -8,11 +8,13 @@ class Cards {
       const catalogItem = document.createElement('div') as HTMLElement
       const catalogItemTitle = document.createElement('h3') as HTMLElement
       const catalogItemImg = document.createElement('div') as HTMLElement
+      const catalogItemCart = document.createElement('p') as HTMLElement
       const catalogItemQuantity = document.createElement('p') as HTMLElement
       const catalogItemYear = document.createElement('p') as HTMLElement
       const catalogItemComp = document.createElement('p') as HTMLElement
       const catalogItemColor = document.createElement('p') as HTMLElement
       const catalogItemSize = document.createElement('p') as HTMLElement
+
 
       catalog.append(catalogItem)
       catalogItem.classList.add('catalog__item')
@@ -24,6 +26,10 @@ class Cards {
       catalogItem.append(catalogItemImg)
       catalogItemImg.classList.add('item__img')
       catalogItemImg.style.backgroundImage = `url("${item.img}")`
+
+      catalogItem.append(catalogItemCart)
+      catalogItemCart.classList.add('item__addcart')
+      catalogItemCart.textContent = 'Add to cart'
 
       catalogItem.append(catalogItemQuantity)
       catalogItemQuantity.textContent = `In stock: ${item.quantity}`

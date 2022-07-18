@@ -11,6 +11,11 @@
   padding: 5px 0 0 5px;
 }
 
+.item__addcart {
+  align-self: center;
+  cursor: pointer;
+}
+
 .catalog__item h3 {
   font-size: 1em;
   font-weight: 400;

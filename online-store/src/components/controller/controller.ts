@@ -14,6 +14,7 @@ class Controller {
   dataSliderYear: IData[]
   dataSliderInstock: IData[]
   filters: string[]
+  dataInCart: IData[]
   constructor() {
     this.cards = new Cards()
     this.data = data
@@ -25,6 +26,7 @@ class Controller {
     this.dataSliderYear = data
     this.dataSliderInstock = data
     this.filters = []
+    this.dataInCart = []
   }
 
   find(data: IData[]) {
@@ -32,7 +34,7 @@ class Controller {
     const dataSearched: IData[] = data.filter(function (item) {
       return item.name.toLowerCase().indexOf(search.value.toLowerCase()) > -1;
     })
-    console.log(data)
+
     const catalog = document.querySelector('.catalog') as HTMLElement
     catalog.innerHTML = ''
     this.cards.draw(dataSearched)
@@ -46,9 +48,9 @@ class Controller {
         if (sliderYear.noUiSlider !== undefined && sliderInstock.noUiSlider !== undefined) {
           const handlesArr = sliderYear.noUiSlider.get() as number[]
           const handlesArr2 = sliderInstock.noUiSlider.get() as number[]
-          console.log(handlesArr2)
+
           if (handlesArr2[0] !== 1 || handlesArr2[1] !== 12) {
-            console.log('fsafsafasfasfsa')
+
             this.dataSliderYear = this.dataSliderInstock.filter(function (item) {
               if (Number(item.year) >= Number(handlesArr[0]) && Number(item.year) <= Number(handlesArr[1])) {
                 return item
@@ -112,7 +114,7 @@ class Controller {
 
   sort(data: IData[]) {
     this.value = this.select.value
-    console.log(this.value)
+
     if (this.value === 'nameAsc') {
       const dataSorted: IData[] = data.sort(function (a, b) {
         if (a.name > b.name) {
@@ -181,7 +183,7 @@ class Controller {
             this.filters = this.filters.filter(item => item !== el.dataset.filter)
           }
         }
-        console.log(this.filters)
+
 
         let filterCompanyFlag = false
         let filterColorFlag = false
@@ -237,10 +239,10 @@ class Controller {
           for (const key in item) {
             for (const j of this.filters) {
               if (key !== 'favorite' && key !== 'quantity' && key !== 'year' && key !== 'num' && key !== 'img' && key !== 'name') {
-                console.log(key + ' ' + j)
+
                 if (String(item[key as keyof typeof item]).toLowerCase() == j) {
                   counter++
-                  console.log(counter)
+
                   if ((filterCompanyFlag === true || filterColorFlag === true || filterCamFlag === true) && (counterFilter1 === this.filters.length || counterFilter2 === this.filters.length || counterFilter3 === this.filters.length)) {
                     return item
                   } else if (counter === this.filters.length) {
@@ -260,7 +262,7 @@ class Controller {
           dataFiltered = data
           this.dataFiltered = data
         } else {
-          console.log(dataFiltered)
+
           this.cards.draw(dataFiltered)
           this.dataFiltered = dataFiltered
         }
@@ -278,6 +280,37 @@ class Controller {
       if (sliderYear.noUiSlider !== undefined && sliderInstock.noUiSlider !== undefined) {
         sliderYear.noUiSlider.reset()
         sliderInstock.noUiSlider.reset()
+      }
+    })
+  }
+
+  addToCart() {
+    const catalog = document.querySelector('.catalog') as HTMLElement
+
+    const cartCounter = document.querySelector('.cart-mark') as HTMLElement
+
+    catalog.addEventListener('click', (e) => {
+      const el = e.target as HTMLElement;
+      if (el !== null && el.className === 'item__addcart') {
+        const arr = this.data.filter(function (item) {
+          if (typeof el.previousElementSibling?.previousElementSibling?.textContent?.toLowerCase() === 'string') {
+            return item.name.toLowerCase().indexOf(el.previousElementSibling?.previousElementSibling?.textContent?.toLowerCase()) > -1;
+          }
+        })
+        if (!this.dataInCart.includes(arr[0])) {
+          this.dataInCart.push(arr[0])
+          el.textContent += ' ✓'
+        } else {
+          this.dataInCart = this.dataInCart.filter(item => item !== arr[0])
+          el.textContent = 'Add to cart'
+        }
+        if (this.dataInCart.length > 0) {
+          cartCounter.style.display = 'flex'
+          cartCounter.textContent = String(this.dataInCart.length)
+        } else {
+          cartCounter.style.display = 'none'
+          cartCounter.textContent = ''
+        }
       }
     })
   }
