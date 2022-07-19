@@ -148,3 +148,28 @@
   width: 100px;
   margin-bottom: 50px;
 }
+
+footer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 40vh;
+  height: 45px;
+  background: #313132
+}
+
+footer a {
+  text-decoration: none;
+  font-size: 1.1rem;
+  color: #d6d6d6;
+}
+
+footer {
+  font-size: 1.1rem;
+  color: #d6d6d6;
+}
+
+footer a img {
+  filter: invert(92%) sepia(0%) saturate(0%) hue-rotate(168deg) brightness(94%) contrast(92%);
+}

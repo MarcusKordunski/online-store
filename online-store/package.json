@@ -7,7 +7,7 @@
     "start": "webpack serve --open --config ./webpack.config.js --env mode=dev",
     "build": "webpack --config ./webpack.config.js --env mode=prod",
     "lint": "eslint . --ext .ts",
-    "deploy": "gh-pages -d ../dist -e news-api"
+    "deploy": "gh-pages -d ../dist -e online-store"
   },
   "repository": {
     "type": "git",
@@ -40,6 +40,7 @@
     "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-prettier": "^4.2.1",
     "file-loader": "^6.2.0",
+    "gh-pages": "^4.0.0",
     "nouislider": "^15.6.0",
     "prettier": "^2.7.1",
     "url-loader": "^4.1.1",

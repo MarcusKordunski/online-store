@@ -52,3 +52,6 @@ noUiSlider.create(sliderInstock, {
 
 const test1 = new Load()
 test1.load()
+
+console.log('Самооценка для кросс - чека: 190 / 220')
+console.log('Не выполненные пункты: 1. Нет local storage -30')
