@@ -1,0 +1,175 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.body {
+  font-family: 'Rubik', sans-serif;
+  background: #f5f5f7;
+  color: #1d1d1f;
+  width: 100%;
+  margin: 0 auto
+}
+
+.header {
+  background: #313132;
+  color: #d6d6d6;
+  padding: 0 4rem 0 4rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: row;
+}
+
+.h1 {
+  font-family: 'Poppins', sans-serif;
+}
+
+.h1 a:hover {
+  color: #ffffff;
+}
+
+.h1 a {
+  transition: 0.3s ease-out;
+  text-decoration: none;
+  color: #d6d6d6;
+}
+
+.cart-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  gap: 0.5rem;
+  cursor: pointer;
+  text-decoration: none;
+  color: #d6d6d6;
+  transition: 0.4s ease-out;
+}
+
+.cart-btn:hover {
+  filter: invert(0%) sepia(0%) saturate(659%) hue-rotate(313deg) brightness(200%) contrast(100%);
+}
+
+.cart-img {
+  background-image: url("./assets/cart.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  filter: invert(92%) sepia(0%) saturate(0%) hue-rotate(168deg) brightness(94%) contrast(92%);
+  width: 30px;
+  height: 30px;
+}
+
+.cart-mark {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #d6d6d6;
+  position: relative;
+  display: none;
+  color: #313132;
+  font-weight: 600;
+  align-content: center;
+  justify-content: center;
+  right: 6.7em;
+}
+
+.main {
+  padding: 0 4rem 0 4rem;
+  font-size: 1.2em;
+}
+
+.page-title {
+  display: inline-block;
+  margin-bottom: 0.7em;
+}
+
+.store-section {
+  margin-top: 0.7em;
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: row;
+  gap: 1.5em;
+}
+
+#search,
+#sort,
+#reset {
+  background: #f5f5f7;
+  border: 0.1em gray solid;
+  outline: none;
+  font-family: 'Rubik', sans-serif;
+}
+
+#search:focus,
+#sort:focus {
+  border: 0.1em gray solid;
+  outline: none;
+}
+
+#search {
+  margin: 0.9em 0 0.5em 0;
+}
+
+.catalog {
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: row;
+  gap: 1em;
+  flex-wrap: wrap;
+  align-content: flex-start;
+}
+
+#sliderYear,
+#sliderInstock {
+  margin: 20px 0 20px 0;
+}
+
+#reset {
+  width: 10em;
+  height: 2em;
+  margin: 0 auto;
+  cursor: pointer;
+  transition: 0.3s ease-out;
+}
+
+#reset:hover {
+  background: #313132;
+  color: #d6d6d6;
+}
+
+#reset:active {
+  color: red;
+}
+
+.slider-title {
+  width: 100px;
+  margin-bottom: 50px;
+}
+
+footer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 40vh;
+  height: 45px;
+  background: #313132
+}
+
+footer a {
+  text-decoration: none;
+  font-size: 1.1rem;
+  color: #d6d6d6;
+}
+
+footer {
+  font-size: 1.1rem;
+  color: #d6d6d6;
+}
+
+footer a img {
+  filter: invert(92%) sepia(0%) saturate(0%) hue-rotate(168deg) brightness(94%) contrast(92%);
+}
